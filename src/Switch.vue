@@ -22,7 +22,7 @@ export default {
   },
 
   mounted () {
-    this.realValue = !!this.checked
+    this.realValue = !!this.value
   },
 
   computed: {
