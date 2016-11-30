@@ -1,5 +1,5 @@
 <template>
-  <label class="switch" :class="classObject">
+  <label class="switch" :class="{ [`is-${type}`]: type, [`is-${size}`]: size, ['checked']: value }">
     <input type="checkbox" :disabled="disabled" v-model="realValue">
   </label>
 </template>
@@ -11,7 +11,8 @@ export default {
     isFullwidth: Boolean,
     type: String,
     size: String,
-    checked: Boolean
+    checked: Boolean,
+    value: Boolean
   },
 
   data () {
@@ -38,6 +39,7 @@ export default {
   watch: {
     realValue (val) {
       this.$emit('change', val)
+      this.$emit('input', val)
     }
   }
 }
